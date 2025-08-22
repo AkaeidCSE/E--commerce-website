@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Deal - E-commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for modern look -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontisto/css/fontisto.min.css">
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background: #ff6f00;
+    box-shadow: 0 2px 8px rgba(165, 96, 96, 0.08);
+}
+.logo {
+    color: #fffefe;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 20px 0;
+    display: inline-block;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    float: right;
+    margin-top: 28px;
+}
+nav ul li a {
+    color: #fffefe;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: #222;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(90deg, #ff6f00 60%, #fff3e0 100%);
+    color: #fff;
+    padding: 60px 0 40px 0;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 30px;
+}
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+.btn {
+    background: #fff;
+    color: #ff6f00;
+    padding: 12px 32px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #ff6f00;
+    color: #fff;
+}
+
+/* Shop Tools Section */
+.shop-tools {
+    margin-bottom: 30px;
+}
+.shop-tools .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.shop-tools label {
+    font-weight: 600;
+    color: #ff6f00;
+}
+.shop-tools select,
+.shop-tools input {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #ff6f00;
+    font-size: 1rem;
+}
+.shop-tools button {
+    padding: 8px 20px;
+    margin-left: 8px;
+}
+
+/* Products Section */
+.products h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #ff6f00;
+    text-align: center;
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+.product-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 25px 18px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+.product-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(255,111,0,0.15);
+}
+.product-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    background: #fff3e0;
+}
+.product-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #222222ef;
+}
+.product-card p {
+    font-size: 1.1rem;
+    color: #ff6f00;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.product-card button {
+    background: #ff6f00;
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.product-card button:hover {
+    background: #ff9800;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 22px 0;
+    margin-top: 40px;
+    border-radius: 20px 20px 0 0;
+    font-size: 1rem;
+}
+footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+footer h3 {
+    color: #ff6f00;
+    margin-bottom: 8px;
+}
+footer h4 {
+    color: #ff6f00;
+    margin-bottom: 8px;
+}
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+footer .socials a {
+    margin-right: 10px;
+}
+footer .socials img {
+    vertical-align: middle;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .container {
+        width: 98%;
+    }
+    nav ul {
+        gap: 16px;
+        font-size: 1rem;
+        margin-top: 18px;
+    }
+    .hero h2 {
+        font-size: 1.6rem;
+    }
+    .products h2 {
+        font-size: 1.3rem;
+    }
+    .product-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.footer-brand {
+    flex: 1;
+    min-width: 180px;
+    text-align: left;
+}
+.footer-links {
+    flex: 1;
+    min-width: 180px;
+}
+.footer-socials {
+    flex: 1;
+    min-width: 180px;
+    text-align: right;
+}
+.socials-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+.footer-socials h4 {
+    text-align: center;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: #bbb;
+}
+.social-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: center;
+    line-height: 36px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+.social-icon.facebook { background: #ec650b; }
+.social-icon.instagram { background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497f8 5%, #ff5344 45%, #d33da3 60%, #305ad6 90%); }
+.social-icon.youtube { background: #d30909; }
+.social-icon img {
+    filter: none;
+    width: 24px;
+    height: 24px;
+    margin-top: 6px;
+}
+.btn.btn:hover {
+    box-shadow: 0 2px 8px #fc6500;
+ } </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-flex">
+            <h2 class="logo">কুইক ডিল BD</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Best Deals of the Season!</h2>
+            <p>Shop the latest products at unbeatable prices.</p>
+            <a href="#" class="btn">
+                Shop Now
+                <i class="fi fi-rs-shopping-cart" style="font-size:22px; vertical-align:middle; margin-left:8px;"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Shop Tools Section -->
+    <section class="shop-tools">
+        <div class="container" style="display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; margin-bottom:30px;">
+            <!-- Categories Dropdown -->
+            <div>
+                <label for="category" style="font-weight:600; color:#ff6f00;">Categories:</label>
+                <select id="category" style="padding:8px 16px; border-radius:8px; border:1px solid #ff6f00; font-size:1rem;">
+                    <option value="all">All</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="food">Food</option>
+                    <option value="accessories">Accessories</option>
+                </select>
+            </div>
+            <!-- Search Bar -->
+            <div>
+                <input type="text" id="search" placeholder="Search products..." style="padding:8px 16px; border-radius:8px; border:1px solid #ff6f00; font-size:1rem;">
+                <button class="btn" style="padding:8px 20px; margin-left:8px;">Search</button>
+            </div>
+            <!-- Payment Button -->
+            <div>
+                <button class="btn" style="background:#ff6004; color:#fff; padding:10px 28px;">
+                    <i class="fi fi-rs-credit-card" style="font-size:20px; vertical-align:middle; margin-right:8px;"></i>
+                    Pay Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="headphone.jpg" alt="Wireless Headphones">
+                    <h3>Wireless Headphones</h3>
+                    <p>$49.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="stopwatch.jpg" alt="Smart Watch">
+                    <h3>Smart Watch</h3>
+                    <p>$89.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="still-life-wireless-cyberpunk-headphones.jpg" alt="Bluetooth Speaker">
+                    <h3>Bluetooth Speaker</h3>
+                    <p>$29.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="fitness.jpg" alt="Fitness Tracker">
+                    <h3>Fitness Tracker</h3>
+                    <p>$39.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="pizza1.jpg" alt="Spicey Pizza">
+                    <h3>Spicey Pizza</h3>
+                    <p>$24.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="power-bank-charging-your-smartphone-white.jpg" alt="Power Bank">
+                    <h3>Power Bank</h3>
+                    <p>$19.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="football.jpg" alt="Earbuds">
+                    <h3>UEFA Football</h3>
+                    <p>$34.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="iphone16.jpg" alt="Smartphone">
+                    <h3>Iphone 16 Pro Max</h3>
+                    <p>$299.99</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="car.jpg" alt="Smartphone">
+                    <h3>BMW Car</h3>
+                    <p>$10,0000</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="DUCATI 900cc.jpg" alt="Smartphone">
+                    <h3>DUCATI 900cc</h3>
+                    <p>$50,000</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="tshirt.jpg" alt="Smartphone">
+                    <h3>T-Shirt</h3>
+                    <p>$1,000</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="bat.jpg" alt="Smartphone">
+                    <h3>Game Set</h3>
+                    <p>$300</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-flex">
+            <div class="footer-brand">
+                <h3>কুইক ডিল BD</h3>
+                <p>Your trusted marketplace for the best deals in Bangladesh.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <h4>Follow Us</h4>
+                <div class="socials-center">
+                    <a class="social-icon facebook" href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24"></a>
+                    <a class="social-icon instagram" href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24"></a>
+                    <a class="social-icon youtube" href="#"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube" width="24"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 কুইক ডিল. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
